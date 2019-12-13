@@ -1,0 +1,184 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*borders and padding no onger added to total height and total width*/
+}
+
+
+body{
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+
+.header{
+    height: 95vh; /* 100vh s 100%*/
+    background-image: linear-gradient(to right bottom, rgba(125,213,111,0.8),  rgba(40,180,131,0.8)), url(../img/hero.jpg);
+    background-size: cover;
+    background-position: top; /* which part of the image stays in browser*/
+    position: relative; /*incase if we are using top bottom in child */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh,0 100%); 
+     /*starting from left(0,0) to right(0,100) righttobottom(100,75)
+    bottomrighttoleft (0,100)
+    */
+}
+
+.logo-box{
+    position: absolute;
+    top: 40px; /*this position is count from the parent ,parent should be relative*/
+    left: 40px;
+}
+
+.logo{
+    height: 35px;
+}
+
+.text-box{
+    /* this is for making the content center */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%); /*left then top*/
+    text-align: center; /*for making a button center*/
+}
+
+.heading-primary{
+    color: #fff;
+    text-transform: uppercase;
+
+    backface-visibility: hidden; /*remove shaking in animation*/ 
+    margin-bottom: 60px;
+}
+
+.heading-primary-main{
+    display: block; /* span is an inline element so changing it*/
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s; /*total time taken for animation*/
+    animation-delay: 3s; /*when to start animation*/
+    /* animation-iteration-count: 3; 
+    3 times it invoke animation
+
+    animation-timing-function: ease-out;
+    controls the fast, and when to use the speed
+    */
+    
+}
+
+.heading-primary-sub{
+    display: block; /* span is an inline element so changing it*/
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 14.4px;
+    
+    animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft{
+    0%{
+        /* starting of animation */
+        opacity: 0;
+        transform: translateX(-100px) rotate(0deg);/* translate goes from x - left to right, 
+        y - top to bottom, rotate will rotate the content*/
+    }
+    /* 60%{
+        transform: rotate(180deg);
+    } */
+    80%{
+        transform: translateX(10px); /*move little bit forward*/
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0); /*back to original position*/
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(10rem); 
+    }
+    80% {
+      transform: translateX(-1rem); 
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0); 
+    }
+}
+
+@keyframes moveInButton {
+    0% {
+      opacity: 0;
+      transform: translateY(30px); 
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0); 
+    }
+}
+
+.btn:link,
+.btn:visited{
+/* tis is the sudo class (:link), it is used when hover an element checkbox clicked */
+/* visited is update the clicked status */
+/* link is unvisted link */
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block; /*for avoid overlap with upper text*/
+    border-radius: 100px; /*curvy edges 100& 500 allhigh values are same*/
+    transition: all .2s;
+    position: relative;
+}
+
+.btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+.btn:active{
+    /* for clicked state */
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.btn-white{
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after{
+    content: ""; /*mandatory*/
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after{
+    background-color: #fff;
+}
+
+.btn-white:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated{
+    animation: moveInButton .5s ease-out .75s;
+    animation-fill-mode: backwards; /*set initial style 0*/
+}
