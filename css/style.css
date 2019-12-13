@@ -1,19 +1,36 @@
 
 
-*{
+*,
+*::after,
+*::before{
+    /* psudo won't updated with this if we use * */
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /*borders and padding no onger added to total height and total width*/
+    box-sizing: inherit; /*box-sizing: border-box; - borders and padding no onger added to total height and total width*/
+}
+
+html{
+    font-size: 62.5%; /* font-size: 10px; now 1 rem = 10px*/
+    /* EMs are relative to their parent's font size
+    REMs are relative to a base font-size */
+
+    /* some people change their default font size so to work our font properly 10 px :- 10/16 = .625 */
+
+    /* .625*16 = 10px
+        .625*20 = 12.5
+        .625*22 = 13.75 
+    */
 }
 
 
 body{
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
+    box-sizing: border-box;
 }
 
 .header{
@@ -30,12 +47,12 @@ body{
 
 .logo-box{
     position: absolute;
-    top: 40px; /*this position is count from the parent ,parent should be relative*/
-    left: 40px;
+    top: 4rem; /*this position is count from the parent ,parent should be relative*/
+    left: 4rem;
 }
 
 .logo{
-    height: 35px;
+    height: 3.5rem;
 }
 
 .text-box{
@@ -52,14 +69,14 @@ body{
     text-transform: uppercase;
 
     backface-visibility: hidden; /*remove shaking in animation*/ 
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
 
 .heading-primary-main{
     display: block; /* span is an inline element so changing it*/
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
 
     animation-name: moveInLeft;
     animation-duration: 1s; /*total time taken for animation*/
@@ -75,9 +92,9 @@ body{
 
 .heading-primary-sub{
     display: block; /* span is an inline element so changing it*/
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 14.4px;
+    letter-spacing: 1.75rem;
     
     animation: moveInRight 1s ease-out;
 }
@@ -86,14 +103,14 @@ body{
     0%{
         /* starting of animation */
         opacity: 0;
-        transform: translateX(-100px) rotate(0deg);/* translate goes from x - left to right, 
+        transform: translateX(-10rem) rotate(0deg);/* translate goes from x - left to right, 
         y - top to bottom, rotate will rotate the content*/
     }
     /* 60%{
         transform: rotate(180deg);
     } */
     80%{
-        transform: translateX(10px); /*move little bit forward*/
+        transform: translateX(1rem); /*move little bit forward*/
     }
     100%{
         opacity: 1;
@@ -118,7 +135,7 @@ body{
 @keyframes moveInButton {
     0% {
       opacity: 0;
-      transform: translateY(30px); 
+      transform: translateY(3rem); 
     }
     100% {
       opacity: 1;
@@ -133,22 +150,23 @@ body{
 /* link is unvisted link */
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block; /*for avoid overlap with upper text*/
-    border-radius: 100px; /*curvy edges 100& 500 allhigh values are same*/
+    border-radius: 10rem; /*curvy edges 100& 500 allhigh values are same*/
     transition: all .2s;
     position: relative;
+    font-size: 1.6rem;
 }
 
 .btn:hover{
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
 }
 
 .btn:active{
     /* for clicked state */
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
 }
 
 .btn-white{
@@ -161,7 +179,7 @@ body{
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute;
     top: 0;
     left: 0;
