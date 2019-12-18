@@ -1,0 +1,30 @@
+.header{
+    height: 95vh; /* 100vh s 100%*/
+    background-image: linear-gradient(to right bottom, rgba(125,213,111,0.8),  rgba(40,180,131,0.8)), url(../img/hero.jpg);
+    background-size: cover;
+    background-position: top; /* which part of the image stays in browser*/
+    position: relative; /*incase if we are using top bottom in child */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh,0 100%); 
+     /*starting from left(0,0) to right(0,100) righttobottom(100,75)
+    bottomrighttoleft (0,100)
+    */
+
+    .logo-box{
+        position: absolute;
+        top: 4rem; /*this position is count from the parent ,parent should be relative*/
+        left: 4rem;
+    }
+    
+    .logo{
+        height: 3.5rem;
+    }
+    
+    .text-box{
+        /* this is for making the content center */
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%,-50%); /*left then top*/
+        text-align: center; /*for making a button center*/
+    }
+}

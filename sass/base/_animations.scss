@@ -1,0 +1,43 @@
+@keyframes moveInLeft{
+    0%{
+        /* starting of animation */
+        opacity: 0;
+        transform: translateX(-10rem) rotate(0deg);/* translate goes from x - left to right, 
+        y - top to bottom, rotate will rotate the content*/
+    }
+    /* 60%{
+        transform: rotate(180deg);
+    } */
+    80%{
+        transform: translateX(1rem); /*move little bit forward*/
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0); /*back to original position*/
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(10rem); 
+    }
+    80% {
+      transform: translateX(-1rem); 
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0); 
+    }
+}
+
+@keyframes moveInButton {
+    0% {
+      opacity: 0;
+      transform: translateY(3rem); 
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0); 
+    }
+}

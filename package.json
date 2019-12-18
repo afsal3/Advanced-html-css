@@ -1,0 +1,22 @@
+{
+  "name": "advanced-html-css",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass" : "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afsal3/Advanced-html-css.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afsal3/Advanced-html-css/issues"
+  },
+  "homepage": "https://github.com/afsal3/Advanced-html-css#readme",
+  "devDependencies": {
+    "node-sass": "^4.13.0"
+  }
+}

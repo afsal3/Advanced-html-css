@@ -1,0 +1,28 @@
+
+*,
+*::after,
+*::before{
+    /* psudo won't updated with this if we use * */
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit; /*box-sizing: border-box; - borders and padding no onger added to total height and total width*/
+    /* box sizing will be nherited from body to all the elements */
+}
+
+html{
+    font-size: 62.5%; /* font-size: 10px; now 1 rem = 10px*/
+    /* EMs are relative to their parent's font size
+    REMs are relative to a base font-size */
+
+    /* some people change their default font size so to work our font properly 10 px :- 10/16 = .625 */
+
+    /* .625*16 = 10px
+        .625*20 = 12.5
+        .625*22 = 13.75 
+    */
+}
+
+
+body{
+    box-sizing: border-box;
+}
